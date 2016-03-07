@@ -1,6 +1,6 @@
 <?
 
-	class Geofency extends IPSModule
+	class EgiGeoZone extends IPSModule
 	{
 		
 		public function Create()
