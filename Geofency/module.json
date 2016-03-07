@@ -1,11 +1,11 @@
 {
-	"id": "{0100CA50-D2DA-11E4-8830-0800200C9A66}",
-	"name": "Geofency",
+	"id": "{C3335E64-808D-4E65-A832-1DB3F4C44272}",
+	"name": "EgiGeoZone",
 	"type": 0,
 	"vendor": "",
 	"aliases": 
 	[
-		"Geofency"
+		"EgiGeoZone Geofence"
 	],
 	"parentRequirements": [],
 	"childRequirements": [],
