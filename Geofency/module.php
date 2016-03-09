@@ -72,10 +72,10 @@
 			}
 			
 			if(!isset($_POST['device']) || !isset($_POST['id']) || !isset($_POST['name'])) {
-				IPS_LogMessage("Geofency", "Malformed data: ".print_r($_GET, true));
+				IPS_LogMessage("Geofency", "Malformed data: ".print_r($_POST, true));
 				return;
 			}
-			IPS_LogMessage("Geofency", "Malformed data: ".print_r($_POST, true));
+			
 			$deviceID = $this->CreateInstanceByIdent($this->InstanceID, $this->ReduceGUIDToIdent($_POST['device']), "Device");
 			SetValue($this->CreateVariableByIdent($deviceID, "Latitude", "Latitude", 2), floatval($_POST['latitude']));
 			SetValue($this->CreateVariableByIdent($deviceID, "Longitude", "Longitude", 2), floatval($_POST['longitude']));
