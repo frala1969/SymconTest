@@ -71,17 +71,17 @@
 				}
 			}
 			
-			if(!isset($_GET['device']) || !isset($_GET['id']) || !isset($_GET['name'])) {
-				IPS_LogMessage("Geofency", "Malformed data: ".print_r($_GET, true));
+			if(!isset($_GET['device']) || !isset($_POST['id']) || !isset($_POST['name'])) {
+				IPS_LogMessage("Geofency", "Malformed data: ".print_r($_POST, true));
 				return;
 			}
-			IPS_LogMessage("Geofency", "Malformed data: ".print_r($_GET, true));
-			$deviceID = $this->CreateInstanceByIdent($this->InstanceID, $this->ReduceGUIDToIdent($_GET['device']), "Device");
-			SetValue($this->CreateVariableByIdent($deviceID, "Latitude", "Latitude", 2), floatval($_GET['latitude']));
-			SetValue($this->CreateVariableByIdent($deviceID, "Longitude", "Longitude", 2), floatval($_GET['longitude']));
-			SetValue($this->CreateVariableByIdent($deviceID, "Timestamp", "Timestamp", 1, "~UnixTimestamp"), intval(strtotime($_GET['date'])));
-			SetValue($this->CreateVariableByIdent($deviceID, "Entry", "Entry", 2), floatval($_GET['entry']));
-			SetValue($this->CreateVariableByIdent($deviceID, $this->ReduceGUIDToIdent($_GET['id']), utf8_decode($_GET['name']), 0, "~Presence"), intval($_GET['entry']) > 0);
+			IPS_LogMessage("Geofency", "Malformed data: ".print_r($_POST, true));
+			$deviceID = $this->CreateInstanceByIdent($this->InstanceID, $this->ReduceGUIDToIdent($_POST['device']), "Device");
+			SetValue($this->CreateVariableByIdent($deviceID, "Latitude", "Latitude", 2), floatval($_POST['latitude']));
+			SetValue($this->CreateVariableByIdent($deviceID, "Longitude", "Longitude", 2), floatval($_POST['longitude']));
+			SetValue($this->CreateVariableByIdent($deviceID, "Timestamp", "Timestamp", 1, "~UnixTimestamp"), intval(strtotime($_POST['date'])));
+			SetValue($this->CreateVariableByIdent($deviceID, "Entry", "Entry", 2), floatval($_POST['entry']));
+			SetValue($this->CreateVariableByIdent($deviceID, $this->ReduceGUIDToIdent($_POST['id']), utf8_decode($_POST['name']), 0, "~Presence"), intval($_POST['entry']) > 0);
 			
 		}
 		
