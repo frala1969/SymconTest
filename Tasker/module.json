@@ -1,11 +1,11 @@
 {
-	"id": "{C3335E64-808D-4E65-A832-1DB3F4C44272}",
+	"id": "{9389FC96-19DE-47D4-B05E-C3B17544B00E}",
 	"name": "EgiGeoZone",
 	"type": 0,
 	"vendor": "",
 	"aliases": 
 	[
-		"EgiGeoZone"
+		"Tasker"
 	],
 	"parentRequirements": [],
 	"childRequirements": [],

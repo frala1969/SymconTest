@@ -1,6 +1,6 @@
 <?
 
-	class EgiGeoZone extends IPSModule
+	class Tasker extends IPSModule
 	{
 		
 		public function Create()
@@ -23,7 +23,7 @@
 		
 		private function RegisterHook($Hook, $TargetID)
 		{
-			$ids = IPS_GetInstanceListByModuleID("{015A6EB8-D6E5-4B93-B496-0D3F77AE9FE1}");
+			$ids = IPS_GetInstanceListByModuleID("{A779A9AF-AA2B-44AC-8D5D-84411660CD34}");
 			if(sizeof($ids) > 0) {
 				$hooks = json_decode(IPS_GetProperty($ids[0], "Hooks"), true);
 				$found = false;
@@ -117,7 +117,7 @@
 			 return $vid;
 		}
 		
-		private function CreateInstanceByIdent($id, $ident, $name, $moduleid = "{485D0419-BE97-4548-AA9C-C083EB82E61E}")
+		private function CreateInstanceByIdent($id, $ident, $name, $moduleid = "{FF877AC9-24B5-462F-B5AB-30CCC1FB645C}")
 		 {
 			 $iid = @IPS_GetObjectIDByIdent($ident, $id);
 			 if($iid === false)
