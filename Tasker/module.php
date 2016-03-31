@@ -71,7 +71,7 @@
 				}
 			}
 			
-			if(!isset($_GET['device']) || !isset($_POST['id']) || !isset($_POST['name'])) {
+			if(!isset($_POST['device']) || !isset($_POST['id']) || !isset($_POST['name'])) {
 				IPS_LogMessage("Geofency", "Malformed data: ".print_r($_POST, true));
 				return;
 			}
