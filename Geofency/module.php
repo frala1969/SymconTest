@@ -76,7 +76,7 @@
 				return;
 			}
 			IPS_LogMessage("Geofency", "Malformed data: ".print_r($_GET, true));
-			$deviceID = $this->CreateInstanceByIdent($this->InstanceID, $this->ReduceGUIDToIdent($_GET['device']), "Device");
+			$deviceID = $this->CreateInstanceByIdent($this->InstanceID, $this->$_GET['device'], "Device");
 			SetValue($this->CreateVariableByIdent($deviceID, "Latitude", "Latitude", 2), floatval($_GET['latitude']));
 			SetValue($this->CreateVariableByIdent($deviceID, "Longitude", "Longitude", 2), floatval($_GET['longitude']));
 			SetValue($this->CreateVariableByIdent($deviceID, "Timestamp", "Timestamp", 1, "~UnixTimestamp"), intval(strtotime($_GET['date'])));
