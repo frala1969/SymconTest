@@ -77,7 +77,6 @@
 			}
 			IPS_LogMessage("Geofency TASKER", "Malformed data: ".print_r($_POST, true));
 			$deviceID = $this->CreateInstanceByIdent($this->InstanceID, $this->ReduceGUIDToIdent($_POST['device']), "Device");
-			IPS_LogMessage("Geofency TASKER", "Malformed data: ".print_r($deviceID, true));
 			SetValue($this->CreateVariableByIdent($deviceID, "Latitude", "Latitude", 2), floatval($_POST['latitude']));
 			SetValue($this->CreateVariableByIdent($deviceID, "Longitude", "Longitude", 2), floatval($_POST['longitude']));
 			SetValue($this->CreateVariableByIdent($deviceID, "Timestamp", "Timestamp", 1, "~UnixTimestamp"), intval(strtotime($_POST['date'])));
