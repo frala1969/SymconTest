@@ -1,5 +1,5 @@
 {
-	"id": "{9389FC96-19DE-47D4-B05E-C3B17544B00E}",
+	"id": "{68EF9F82-715C-4F76-8F5B-BA57362DE7ED}",
 	"name": "geo",
 	"type": 0,
 	"vendor": "",
@@ -10,5 +10,5 @@
 	"parentRequirements": [],
 	"childRequirements": [],
 	"implemented": [],
-	"prefix": "geo"
+	"prefix": "geotst"
 }
