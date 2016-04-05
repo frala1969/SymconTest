@@ -1,6 +1,6 @@
 <?
 
-	class geo extends IPSModule
+	class geotst extends IPSModule
 	{
 		
 		public function Create()
@@ -18,7 +18,7 @@
 			parent::ApplyChanges();
 			
 			$sid = $this->RegisterScript("Hook", "Hook", "<? //Do not delete or modify.\ninclude(IPS_GetKernelDirEx().\"scripts/__ipsmodule.inc.php\");\ninclude(\"../modules/SymconTest/Tasker/module.php\");\n(new geo (".$this->InstanceID."))->ProcessHookData();");
-			$this->RegisterHook("/hook/geo", $sid);
+			$this->RegisterHook("/hook/geotst", $sid);
 		}
 		
 		private function RegisterHook($Hook, $TargetID)
@@ -28,7 +28,7 @@
 				$hooks = json_decode(IPS_GetProperty($ids[0], "Hooks"), true);
 				$found = false;
 				foreach($hooks as $index => $hook) {
-					if($hook['Hook'] == "/hook/geo") {
+					if($hook['Hook'] == "/hook/geotst") {
 						if($hook['TargetID'] == $TargetID)
 							return;
 						$hooks[$index]['TargetID'] = $TargetID;
@@ -36,7 +36,7 @@
 					}
 				}
 				if(!$found) {
-					$hooks[] = Array("Hook" => "/hook/geo", "TargetID" => $TargetID);
+					$hooks[] = Array("Hook" => "/hook/geotst", "TargetID" => $TargetID);
 				}
 				IPS_SetProperty($ids[0], "Hooks", json_encode($hooks));
 				IPS_ApplyChanges($ids[0]);
