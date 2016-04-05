@@ -1,6 +1,6 @@
 <?
 
-	class tasker extends IPSModule
+	class Tasker extends IPSModule
 	{
 		
 		public function Create()
