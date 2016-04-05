@@ -27,7 +27,7 @@
 				$hooks = json_decode(IPS_GetProperty($ids[0], "Hooks"), true);
 				$found = false;
 				foreach($hooks as $index => $hook) {
-					if($hook['Hook'] == "/hook/geofency") {
+					if($hook['Hook'] == "/hook/tasker") {
 						if($hook['TargetID'] == $TargetID)
 							return;
 						$hooks[$index]['TargetID'] = $TargetID;
@@ -35,7 +35,7 @@
 					}
 				}
 				if(!$found) {
-					$hooks[] = Array("Hook" => "/hook/geofency", "TargetID" => $TargetID);
+					$hooks[] = Array("Hook" => "/hook/tasker", "TargetID" => $TargetID);
 				}
 				IPS_SetProperty($ids[0], "Hooks", json_encode($hooks));
 				IPS_ApplyChanges($ids[0]);
