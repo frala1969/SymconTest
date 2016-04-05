@@ -22,7 +22,7 @@
 		
 		private function RegisterHook($Hook, $TargetID)
 		{
-			$ids = IPS_GetInstanceListByModuleID("{6A652C17-313E-4218-A710-B19DE7EF3DE9}");
+			$ids = IPS_GetInstanceListByModuleID("{015A6EB8-D6E5-4B93-B496-0D3F77AE9FE1}");
 			if(sizeof($ids) > 0) {
 				$hooks = json_decode(IPS_GetProperty($ids[0], "Hooks"), true);
 				$found = false;
