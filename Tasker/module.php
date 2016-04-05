@@ -1,6 +1,6 @@
 <?
 
-	class GEOTST extends IPSModule
+	class tasker extends IPSModule
 	{
 		
 		public function Create()
