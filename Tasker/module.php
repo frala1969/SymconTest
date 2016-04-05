@@ -1,6 +1,6 @@
 <?
 
-	class geotst extends IPSModule
+	class GEOTST extends IPSModule
 	{
 		
 		public function Create()
