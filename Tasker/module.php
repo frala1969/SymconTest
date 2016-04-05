@@ -1,6 +1,5 @@
 <?
-
-	class Tasker extends IPSModule
+	class EgiGeoZone extends IPSModule
 	{
 		
 		public function Create()
@@ -17,18 +16,18 @@
 			//Never delete this line!
 			parent::ApplyChanges();
 			
-			$sid = $this->RegisterScript("Hook", "Hook", "<? //Do not delete or modify.\ninclude(IPS_GetKernelDirEx().\"scripts/__ipsmodule.inc.php\");\ninclude(\"../modules/SymconTest/Tasker/module.php\");\n(new Tasker (".$this->InstanceID."))->ProcessHookData();");
-			$this->RegisterHook("/hook/geotst", $sid);
+			$sid = $this->RegisterScript("Hook", "Hook", "<? //Do not delete or modify.\ninclude(IPS_GetKernelDirEx().\"scripts/__ipsmodule.inc.php\");\ninclude(\"../modules/SymconTest/Geofency/module.php\");\n(new EgiGeoZone (".$this->InstanceID."))->ProcessHookData();");
+			$this->RegisterHook("/hook/geofency", $sid);
 		}
 		
 		private function RegisterHook($Hook, $TargetID)
 		{
-			$ids = IPS_GetInstanceListByModuleID("{FCDE45ED-9CF8-4B3B-8A8D-49434374BC68}");
+			$ids = IPS_GetInstanceListByModuleID("{015A6EB8-D6E5-4B93-B496-0D3F77AE9FE1}");
 			if(sizeof($ids) > 0) {
 				$hooks = json_decode(IPS_GetProperty($ids[0], "Hooks"), true);
 				$found = false;
 				foreach($hooks as $index => $hook) {
-					if($hook['Hook'] == "/hook/geotst") {
+					if($hook['Hook'] == "/hook/geofency") {
 						if($hook['TargetID'] == $TargetID)
 							return;
 						$hooks[$index]['TargetID'] = $TargetID;
@@ -36,7 +35,7 @@
 					}
 				}
 				if(!$found) {
-					$hooks[] = Array("Hook" => "/hook/geotst", "TargetID" => $TargetID);
+					$hooks[] = Array("Hook" => "/hook/geofency", "TargetID" => $TargetID);
 				}
 				IPS_SetProperty($ids[0], "Hooks", json_encode($hooks));
 				IPS_ApplyChanges($ids[0]);
@@ -71,17 +70,17 @@
 				}
 			}
 			
-			if(!isset($_POST['device']) || !isset($_POST['id']) || !isset($_POST['name'])) {
-				IPS_LogMessage("Geofency TASKER", "Malformed data: ".print_r($_POST, true));
+			if(!isset($_GET['device']) || !isset($_GET['id']) || !isset($_GET['name'])) {
+				IPS_LogMessage("Geofency", "Malformed data: ".print_r($_GET, true));
 				return;
 			}
-			IPS_LogMessage("Geofency TASKER", "Malformed data: ".print_r($_POST, true));
-			$deviceID = $this->CreateInstanceByIdent($this->InstanceID, $this->ReduceGUIDToIdent($_POST['device']), "Device");
-			SetValue($this->CreateVariableByIdent($deviceID, "Latitude", "Latitude", 2), floatval($_POST['latitude']));
-			SetValue($this->CreateVariableByIdent($deviceID, "Longitude", "Longitude", 2), floatval($_POST['longitude']));
-			SetValue($this->CreateVariableByIdent($deviceID, "Timestamp", "Timestamp", 1, "~UnixTimestamp"), intval(strtotime($_POST['date'])));
-			SetValue($this->CreateVariableByIdent($deviceID, "Entry", "Entry", 2), floatval($_POST['entry']));
-			SetValue($this->CreateVariableByIdent($deviceID, $this->ReduceGUIDToIdent($_POST['id']), utf8_decode($_POST['name']), 0, "~Presence"), intval($_POST['entry']) > 0);
+			IPS_LogMessage("Geofency", "Malformed data: ".print_r($_GET, true));
+			$deviceID = $this->CreateInstanceByIdent($this->InstanceID, $this->ReduceGUIDToIdent($_GET['device']), "Device");
+			SetValue($this->CreateVariableByIdent($deviceID, "Latitude", "Latitude", 2), floatval($_GET['latitude']));
+			SetValue($this->CreateVariableByIdent($deviceID, "Longitude", "Longitude", 2), floatval($_GET['longitude']));
+			SetValue($this->CreateVariableByIdent($deviceID, "Timestamp", "Timestamp", 1, "~UnixTimestamp"), intval(strtotime($_GET['date'])));
+			SetValue($this->CreateVariableByIdent($deviceID, "Entry", "Entry", 2), floatval($_GET['entry']));
+			SetValue($this->CreateVariableByIdent($deviceID, $this->ReduceGUIDToIdent($_GET['id']), utf8_decode($_GET['name']), 0, "~Presence"), intval($_GET['entry']) > 0);
 			
 		}
 		
@@ -117,7 +116,7 @@
 			 return $vid;
 		}
 		
-		private function CreateInstanceByIdent($id, $ident, $name, $moduleid = "{FF877AC9-24B5-462F-B5AB-30CCC1FB645C}")
+		private function CreateInstanceByIdent($id, $ident, $name, $moduleid = "{485D0419-BE97-4548-AA9C-C083EB82E61E}")
 		 {
 			 $iid = @IPS_GetObjectIDByIdent($ident, $id);
 			 if($iid === false)
@@ -132,5 +131,4 @@
 		
 	
 	}
-
 ?>
