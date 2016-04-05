@@ -17,7 +17,7 @@
 			//Never delete this line!
 			parent::ApplyChanges();
 			
-			$sid = $this->RegisterScript("Hook", "Hook", "<? //Do not delete or modify.\ninclude(IPS_GetKernelDirEx().\"scripts/__ipsmodule.inc.php\");\ninclude(\"../modules/SymconTest/Tasker/module.php\");\n(new geotst (".$this->InstanceID."))->ProcessHookData();");
+			$sid = $this->RegisterScript("Hook", "Hook", "<? //Do not delete or modify.\ninclude(IPS_GetKernelDirEx().\"scripts/__ipsmodule.inc.php\");\ninclude(\"../modules/SymconTest/Tasker/module.php\");\n(new Tasker (".$this->InstanceID."))->ProcessHookData();");
 			$this->RegisterHook("/hook/geotst", $sid);
 		}
 		
