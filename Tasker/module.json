@@ -1,11 +1,11 @@
 {
 	"id": "{9389FC96-19DE-47D4-B05E-C3B17544B00E}",
-	"name": "Tasker",
+	"name": "geo",
 	"type": 0,
 	"vendor": "",
 	"aliases": 
 	[
-		"Tasker"
+		"geo"
 	],
 	"parentRequirements": [],
 	"childRequirements": [],
