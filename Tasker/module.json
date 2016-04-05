@@ -1,11 +1,11 @@
 {
 	"id": "{68EF9F82-715C-4F76-8F5B-BA57362DE7ED}",
-	"name": "geo",
+	"name": "geotst",
 	"type": 0,
 	"vendor": "",
 	"aliases": 
 	[
-		"geo"
+		"geotst"
 	],
 	"parentRequirements": [],
 	"childRequirements": [],
