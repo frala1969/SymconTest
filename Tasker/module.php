@@ -1,6 +1,6 @@
 <?
 
-	class tasker extends IPSModule
+	class geo extends IPSModule
 	{
 		
 		public function Create()
@@ -17,8 +17,8 @@
 			//Never delete this line!
 			parent::ApplyChanges();
 			
-			$sid = $this->RegisterScript("Hook", "Hook", "<? //Do not delete or modify.\ninclude(IPS_GetKernelDirEx().\"scripts/__ipsmodule.inc.php\");\ninclude(\"../modules/SymconTest/Tasker/module.php\");\n(new Tasker (".$this->InstanceID."))->ProcessHookData();");
-			$this->RegisterHook("/hook/tasker", $sid);
+			$sid = $this->RegisterScript("Hook", "Hook", "<? //Do not delete or modify.\ninclude(IPS_GetKernelDirEx().\"scripts/__ipsmodule.inc.php\");\ninclude(\"../modules/SymconTest/Tasker/module.php\");\n(new geo (".$this->InstanceID."))->ProcessHookData();");
+			$this->RegisterHook("/hook/geo", $sid);
 		}
 		
 		private function RegisterHook($Hook, $TargetID)
@@ -36,7 +36,7 @@
 					}
 				}
 				if(!$found) {
-					$hooks[] = Array("Hook" => "/hook/tasker", "TargetID" => $TargetID);
+					$hooks[] = Array("Hook" => "/hook/geo", "TargetID" => $TargetID);
 				}
 				IPS_SetProperty($ids[0], "Hooks", json_encode($hooks));
 				IPS_ApplyChanges($ids[0]);
